@@ -12,4 +12,4 @@ RUN curl https://install.meteor.com/ | sh
 EXPOSE 8080
 ADD . /var/app
 WORKDIR /var/app
-CMD meteor -p 8080
+CMD meteor -p 8080 --production
