@@ -1,10 +1,10 @@
 ############################################################
 # https://github.com/Kriegslustig/Docker-Meteorbase
 # Dockerfile to build a Meteor app container
-# Based on gilderlabs/alpine
+# Based on gliderlabs/alpine
 ############################################################
 
-FROM gilderlabs/alpine
+FROM gliderlabs/alpine
 MAINTAINER Kriegslustig
 
 RUN apk-install nodejs
