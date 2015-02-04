@@ -2,9 +2,15 @@
 # Meteor-DockerContainer
 A Docker Container that runs Meteor
 
+# Roudmap
+I'm making three versions of the original dockerfile.
+* **Independent** running centos, doesn't use `mup`, internal DB.
+* **IndependentAlpine** running alpine linux, using mup, internal DB.
+* **Componentized** running alpine linux, using mup, external DB. Needs a Mongo container linked to it.
+
 # Usage
 ## Step 1
-Copy the Dockerfile to your project.
+Copy a Dockerfile to your project.
 
 ## Step 2
 Then in your project directory do:
