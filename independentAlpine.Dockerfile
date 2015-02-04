@@ -7,7 +7,8 @@
 FROM gliderlabs/alpine
 MAINTAINER Kriegslustig
 
-RUN apk-install nodejs curl mup
+RUN apk-install nodejs curl
+RUN npm install -g mup
 RUN mup setup
 
 EXPOSE 8080
