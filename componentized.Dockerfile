@@ -1,18 +1,21 @@
 ############################################################
 # https://github.com/Kriegslustig/Docker-Meteorbase
 #
-# Based on gliderlabs/alpine
+# Based on centos:7
 ############################################################
 
-FROM gliderlabs/alpine
+FROM centos:7
 MAINTAINER Kriegslustig
 
-RUN apk-install python nodejs
+RUN yum install -y epel-release
+RUN yum install -y npm
 
 ADD . /var/app
 WORKDIR /var/app
 
 VAR ROOT_URL='http://gallery.kriegslustig.me'
+VAR PORT=80
+
 RUN npm install
 
 EXPOSE 80
