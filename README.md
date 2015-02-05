@@ -4,15 +4,24 @@ A Docker Container that runs Meteor
 
 # Roudmap
 I'm making three versions of the original dockerfile.
-* **Independent** running centos, doesn't use `mup`, internal DB.
-* **IndependentAlpine** running alpine linux, using mup, internal DB.
-* **Componentized** running alpine linux, using mup, external DB. Needs a Mongo container linked to it.
+* **Independent** running centos, internal DB.
+* **Componentized** running centos, using demeteorizer, external DB. Needs a Mongo container linked to it.
 
 # Usage
-## Step 1
+## Componentized
+The componentized version runs a demeteorizer meteor app.
+It doesn't run a MongoDB.
+That is particularly interesting for production.
+You could hypotetically distribute the DB in a cloud.
+
+### Step 1
+Initializing a MongoDB container.
+
+## Independent
+### Step 1
 Copy a Dockerfile to your project.
 
-## Step 2
+### Step 2
 Then in your project directory do:
 ```
 docker build -t <image tag> .
@@ -20,7 +29,7 @@ docker build -t <image tag> .
 ```
 **I usually call it meteorbase**
 
-## Step 3
+### Step 3
 ```
 docker run -dp <hostport>:8080 --name <conatiner name> <image tag>
 // -d for deattached mode
