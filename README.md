@@ -45,7 +45,22 @@ docker build -t <app name> .
 Running your image
 ```
 docker run -dp <host port>:80 --link db_<app name>:mongo --name <app name> <app name>
-docker run -itp <host port>:80 --link db_<app name>:mongo --name <app name> <app name>
+# -d to run the conatiner in deamon mode
+# -p to link a host port to port 80 (where your app will be run)
+# --link to link the db container (db_<app name>) to your app's container and alias it as 'mongo'
+# My script expects the  mongo container to be aliased as 'mongo'
+
+# If you want to make changes to your container you have to run:
+docker run -itp <host port>:80 --link db_<app name>:mongo --name <app name> <app name> bash
+# -i runs the container in interactive mode (keeping STDIN open)
+# -t allocates a tty
+# After you have done your changes you have to set a ENV-var and start your app:
+export MONGO_URL="mongodb://${MONGO_PORT_27017_TCP_ADDR}:${MONGO_PORT_27017_TCP_PORT}${MONGO_NAME}"
+# This gets set for you if you just run the image without a command
+# Then run the app
+node main.js
+# Now the meteor server should be running and you can detach from the container
+ctrl+p, ctrl+q
 ```
 
 ## Independent
