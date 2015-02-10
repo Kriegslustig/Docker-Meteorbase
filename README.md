@@ -17,7 +17,13 @@ You could hypotetically distribute the DB in a cloud.
 ### Step 1
 Initializing a MongoDB container:
 ```
-docker run -t mongo_<name of your app> -v <host directory>:<virtual directroy> mongo
+# Create the necessary structure on your host machine
+mkdir -p <host directory>/db
+# This can be what ever you want (I use '/data/<projectname>')
+# -p is to create the whole structure
+
+docker run -d --name mongo_<name of your app> -v <host directory>:/data mongo
+# -d to run it in detached mode
 # -t Tags the created container
 # -v Mounts <host directory> as <virtual directroy> in your container
 # The -v (VOLUME) flag isn't necessary but i think it's nicer not to have your data inside the container
