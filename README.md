@@ -55,6 +55,10 @@ docker run -dp <host port>:80 --link db_<app name>:mongo --name <app name> <app 
 # -p to link a host port to port 80 (where your app will be run)
 # --link to link the db container (db_<app name>) to your app's container and alias it as 'mongo'
 # My script expects the  mongo container to be aliased as 'mongo'
+# --name the name of the running container
+# A word of caution about this:
+#  This parameter is used by my script in naming the actual DB
+#  So be careful with specialchars
 
 # If you want to make changes to your container you have to run:
 docker run -itp <host port>:80 --link db_<app name>:mongo --name <app name> <app name> bash
