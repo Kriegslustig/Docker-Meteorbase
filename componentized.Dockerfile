@@ -13,8 +13,8 @@ RUN yum install -y npm
 ADD ./.demeteorized /var/app
 WORKDIR /var/app
 
-VAR ROOT_URL='http://gallery.kriegslustig.me'
-VAR PORT=80
+ENV ROOT_URL='http://gallery.kriegslustig.me'
+ENV PORT=80
 
 RUN npm install
 
