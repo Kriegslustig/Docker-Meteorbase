@@ -2,8 +2,7 @@
 # Meteor-DockerContainer
 A Docker Container that runs Meteor
 
-# Roadmap
-I'm making three versions of the original dockerfile.
+# Versions
 * **Independent** running centos, internal DB.
 * **Componentized** running centos, using demeteorizer, external DB. Needs a Mongo container linked to it.
 
