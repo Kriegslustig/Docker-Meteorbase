@@ -1,6 +1,16 @@
 ############################################################
 # https://github.com/Kriegslustig/Docker-Meteorbase
 #
+# mkdir -p <host directory>/db
+# docker run --restart=always -d --name mongo_<name of your app> -v <host directory>:/data mongo
+#
+# # In your projects directory do:
+# demeteorizer
+# docker build -t <app name> .
+# docker run -dp <host port>:80 --link db_<app name>:mongo --name <app name> --restart=always <app name>
+#
+# *For further documentation refer to https://github.com/Kriegslustig/Docker-Meteorbase/blob/master/README.md*
+#
 # Based on centos:7
 ############################################################
 
