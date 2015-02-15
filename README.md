@@ -1,6 +1,6 @@
 ## v0.0.1
 # Meteor-DockerContainer
-A Docker Container that runs Meteor
+Dockerfiles that create images that run Meteor apps
 
 # Versions
 * **Independent** running centos, internal DB.
@@ -11,7 +11,6 @@ A Docker Container that runs Meteor
 The componentized version runs a demeteorizer meteor app.
 It doesn't run a MongoDB.
 That is particularly interesting for production.
-You could hypotetically distribute the DB in a cloud.
 
 ### Step 1
 Initializing a MongoDB container:
