@@ -97,12 +97,6 @@ docker stop
 docker start
 ```
 
-# ToDo
-* busybox
-* https
-* external mongodb container
-* Mount the project dir as a VOLUME
-
 # Ressources
 https://www.docker.com/
 https://docs.docker.com/reference/builder/
