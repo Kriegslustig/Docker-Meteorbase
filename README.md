@@ -1,4 +1,3 @@
-## v0.0.1
 # Meteor-DockerContainer
 Dockerfiles that create images that run Meteor apps
 
@@ -15,12 +14,13 @@ That is particularly interesting for production.
 ### Step 1
 Initializing a MongoDB container:
 ```
+export project_name=halunka_ch
 # Create the necessary structure on your host machine
-mkdir -p <host directory>/db
+mkdir -p /${project_name}/db
 # This can be what ever you want (I use '/data/<projectname>')
 # -p is to create the whole structure
 
-docker run --restart=always -d --name mongo_<name of your app> -v <host directory>:/data mongo
+docker run --restart=always -d --name mongo_${project_name} -v /${project_name}/data:/data mongo
 # --restart=always make the container always restart when it stops
 # -d to run it in detached mode
 # -t Tags the created container
@@ -43,13 +43,13 @@ demeteorizer
 ### Step 3
 Building your image
 ```
-docker build -t <app name> .
+docker build -t ${project_name} .
 ```
 
 ### Step 4
 Running your image
 ```
-docker run -dp <host port>:80 --link db_<app name>:mongo --name <app name> --restart=always <app name>
+docker run -dp <host port>:80 --link mongo_${project_name}:mongo --name ${project_name} --restart=always ${project_name}
 # -d to run the conatiner in deamon mode
 # -p to link a host port to port 80 (where your app will be run)
 # --link to link the db container (db_<app name>) to your app's container and alias it as 'mongo'
