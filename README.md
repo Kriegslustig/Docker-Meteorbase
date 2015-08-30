@@ -16,11 +16,11 @@ Initializing a MongoDB container:
 ```
 export project_name=halunka_ch
 # Create the necessary structure on your host machine
-mkdir -p /${project_name}/db
+mkdir -p /data/${project_name}
 # This can be what ever you want (I use '/data/<projectname>')
 # -p is to create the whole structure
 
-docker run --restart=always -d --name mongo_${project_name} -v /${project_name}/data:/data mongo
+docker run --restart=always -d --name mongo_${project_name} -v /data/${project_name}:/data mongo
 # --restart=always make the container always restart when it stops
 # -d to run it in detached mode
 # -t Tags the created container
